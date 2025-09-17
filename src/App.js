@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import cute_dog from "./assets/cute_dog.jpg";
+import AppHeader from "./components/AppHeader/AppHeader";
 
 function App() {
+  const arrayHeaders = [
+    {
+      number: 2,
+      pageName: "Home",
+    },
+    {
+      number: 5,
+      pageName: "About",
+    },
+    {
+      number: 9,
+      pageName: "Contact",
+    },
+    {
+      number: 16,
+      pageName: "Blog",
+    }
+  ];
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AppHeader arrayHeaders={arrayHeaders} />
+      {/* <AppHeader></AppHeader> */}
+      <h1>Danh Phuong</h1>
+      <img src={cute_dog} className="my_image" alt="logo" />
     </div>
   );
 }

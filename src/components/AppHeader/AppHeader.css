@@ -1,0 +1,15 @@
+.App-header {
+    background-color: #282c34;
+    padding: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+
+.App-header div {
+    cursor: pointer;
+}
+
+.App-header div:hover {
+    text-decoration: underline;
+}
