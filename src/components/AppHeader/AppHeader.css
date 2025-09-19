@@ -13,3 +13,8 @@
 .App-header div:hover {
     text-decoration: underline;
 }
+
+.App-header a {
+    text-decoration: none;
+    color: white; 
+}
