@@ -1,0 +1,15 @@
+.contact-container {
+  text-align: center;
+  padding: 40px;
+}
+
+.contact-container ul {
+  list-style-type: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.contact-container li {
+  margin: 8px 0;
+  font-size: 16px;
+}

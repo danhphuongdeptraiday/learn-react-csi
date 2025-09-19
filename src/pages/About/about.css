@@ -1,0 +1,27 @@
+.about-container {
+  text-align: center;
+  padding: 40px;
+}
+
+.about-details {
+  margin-top: 20px;
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-details h3 {
+  margin-top: 20px;
+  color: #2c3e50;
+}
+
+.about-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.about-details li {
+  margin: 8px 0;
+  font-size: 16px;
+}
