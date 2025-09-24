@@ -8,6 +8,8 @@ import About from "./pages/About/about";
 import Contact from "./pages/Contact/contact";
 import Blog from "./pages/Blog/blog";
 import Practice from "./pages/Practice/practice";
+import Practice2 from "./pages/Practice2/Practice2";
+import Login from "./pages/Login/Login";
 
 function App() {
   const arrayHeaders = [
@@ -21,9 +23,19 @@ function App() {
       path: "/practice",
       element: <Practice />,
     },
+    {
+      Number: 6,
+      pageName: "Practice2",
+      path: "/practice2",
+      element: <Practice2 />,
+    },
+    {
+      Number: 6,
+      pageName: "Login",
+      path: "/login",
+      element: <Login />,
+    }
   ];
-
-  console.log("Render App");
 
   return (
     <Router>
