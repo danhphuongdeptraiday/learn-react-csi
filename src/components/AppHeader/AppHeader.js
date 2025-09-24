@@ -2,8 +2,6 @@ import "./AppHeader.css";
 import { Link } from "react-router-dom";
 
 function AppHeader({ arrayHeaders }) {
-  console.log(arrayHeaders);
-
   return (
     <header className="App-header">
       {arrayHeaders.map((header) => {
@@ -12,7 +10,9 @@ function AppHeader({ arrayHeaders }) {
             {header.pageName}
           </Link>
         );
+
       })}
+      <button>Light Mode</button>
     </header>
   );
 }

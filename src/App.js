@@ -1,37 +1,47 @@
 // import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import snoopy from "./assets/snoopy.jpeg";
-import AppHeader from './components/AppHeader/AppHeader';
+import AppHeader from "./components/AppHeader/AppHeader";
 import Home from "./pages/Home/home";
 import About from "./pages/About/about";
 import Contact from "./pages/Contact/contact";
-import Blog from "./pages/Blog/blog"; 
+import Blog from "./pages/Blog/blog";
+import Practice from "./pages/Practice/practice";
 
 function App() {
   const arrayHeaders = [
-    {Number: 1, pageName: "Home", path: "/"},
-    {Number: 2, pageName: "About", path: "/about"}, 
-    {Number: 3, pageName: "Contact", path: "/contact"},
-    {Number: 4, pageName: "Blog", path: "/blog"}
-  ]
+    { Number: 1, pageName: "Home", path: "/", element: <Home /> },
+    { Number: 2, pageName: "About", path: "/about", element: <About /> },
+    { Number: 3, pageName: "Contact", path: "/contact", element: <Contact /> },
+    { Number: 4, pageName: "Blog", path: "/blog", element: <Blog /> },
+    {
+      Number: 5,
+      pageName: "Practice",
+      path: "/practice",
+      element: <Practice />,
+    },
+  ];
 
+  console.log("Render App");
 
   return (
     <Router>
       <div className="App">
-      <AppHeader arrayHeaders={arrayHeaders} />
-      {/* <AppHeader></AppHeader> la cach hai */}
+        <AppHeader arrayHeaders={arrayHeaders} />
 
-      <div className="appBody">
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/about" element={<About />}></Route>
-          <Route path="/contact" element={<Contact />}></Route>
-          <Route path="/blog" element={<Blog />}></Route>
-        </Routes>
+        <div className="appBody">
+          <Routes>
+            {arrayHeaders.map((header) => (
+              <Route
+                key={header.Number}
+                path={header.path}
+                element={header.element}
+              />
+            ))}
+          </Routes>
+        </div>
       </div>
-    </div>
     </Router>
   );
 }
