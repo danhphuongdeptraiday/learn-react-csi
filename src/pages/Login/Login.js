@@ -23,19 +23,37 @@ function Login() {
     },
     {
       username: "danhphuong",
-      password: "123"
-    }
+      password: "123",
+    },
   ];
+
+  const checkValidate = (user) => {
+    for (let i = 0; i < listAccount.length; i++) {
+      if (
+        user.username === listAccount[i].username &&
+        user.password === listAccount[i].password
+      ) {
+        return true;
+      }
+    }
+    return false;
+  };
 
   const handleLogin = (e) => {
     e.preventDefault(); // web k bi reload
 
-    if (loginPerson.username !== myAccount.username) {
-      setMessage("Your account is not exist!");
-    } else if (loginPerson.password !== myAccount.password) {
-      setMessage("Wrong password!");
+    if (checkValidate(loginPerson)) {
+      setMessage(`Welcome ${loginPerson.username} to my page!`);
+
+      const loginHistory =
+        JSON.parse(localStorage.getItem("loginHistory")) || [];
+      loginHistory.push({
+        username: loginPerson.username,
+        password: loginPerson.password,
+      });
+      localStorage.setItem("loginHistory", JSON.stringify(loginHistory));
     } else {
-      setMessage("Successfully!");
+      setMessage("Your account is not exist or wrong password!");
     }
   };
 
