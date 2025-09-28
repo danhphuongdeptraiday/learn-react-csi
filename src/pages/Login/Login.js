@@ -16,11 +16,16 @@ function Login() {
 
   const [message, setMessage] = React.useState("");
 
-  const myAccount = {
-    username: "haanhdao",
-    password: "toibiham123",
-  };
-
+  const listAccount = [
+    {
+      username: "haanhdao",
+      password: "toibiham123",
+    },
+    {
+      username: "danhphuong",
+      password: "123"
+    }
+  ];
 
   const handleLogin = (e) => {
     e.preventDefault(); // web k bi reload
@@ -39,14 +44,13 @@ function Login() {
     console.log(e.target.value);
     setLoginPerson((pre) => ({
       ...pre,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
   // e.target.value => lấy ra giá trị mà input đang có
 
   console.log(loginPerson);
-  
 
   // option + shift + F: type đến đâu nó căn lại đến đó
 
@@ -93,7 +97,6 @@ export default Login;
 // setNumber(abc)
 // // giá trị ban đầu của number là bằng 10
 // // khi setNumber dc gọi thì nó gọi hàm abc sẽ được trả về gía trị mới = number cũ + 11
-
 
 // function abc(previous) {
 //   return 11 + previous
