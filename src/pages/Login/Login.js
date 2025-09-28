@@ -5,13 +5,14 @@
 // Nếu nhập đúng tk mà sai mk thì hện ra: “Mật khẩu sai”
 // Nếu nhập thông tk + mk đúng thì hiện ra: “Successfully”
 
-
 import React from "react";
 import "./Login.css"; // import css file
 
 function Login() {
-  const [usernameInput, setUsernameInput] = React.useState("");
-  const [passwordInput, setPasswordInput] = React.useState("");
+  const [loginPerson, setLoginPerson] = React.useState({
+    username: "",
+    password: "",
+  });
 
   const [checkUsername, setCheckUsername] = React.useState(false);
   const [checkPassword, setCheckPassword] = React.useState(false);
@@ -27,7 +28,7 @@ function Login() {
   const handleChangeUsernameInput = (e) => {
     setUsernameInput(e.target.value);
     if (e.target.value === myAccount.username) {
-      setCheckUsername(true); 
+      setCheckUsername(true);
     } else {
       setCheckUsername(false);
     }
@@ -39,7 +40,7 @@ function Login() {
     if (e.target.value === myAccount.password) {
       setCheckPassword(true);
     } else {
-      setCheckPassword(false); 
+      setCheckPassword(false);
     }
   };
 
@@ -55,6 +56,20 @@ function Login() {
     }
   };
 
+  const handleChangeInput = (e) => {
+    // e.target => Trả về 2 giá trị: name, value
+    console.log(e.target.value);
+    setLoginPerson((pre) => ({
+      ...pre,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  // e.target.value => lấy ra giá trị mà input đang có
+
+  console.log(loginPerson);
+  
+
   // option + shift + F: type đến đâu nó căn lại đến đó
 
   return (
@@ -64,30 +79,58 @@ function Login() {
         <div className="form-group">
           <label>Username</label>
           <input
+            id="username"
             type="username"
             name="username"
             placeholder="Enter username"
-            value={usernameInput}
-            onChange={handleChangeUsernameInput}
+            value={loginPerson.username}
+            onChange={handleChangeInput}
           />
         </div>
 
         <div className="form-group">
           <label>Password</label>
           <input
+            id="password"
             type="password"
             name="password"
             placeholder="Enter password"
-            value={passwordInput}
-            onChange={handleChangePasswordInput}
+            // value={"***"}
+            value={loginPerson.password}
+            onChange={handleChangeInput}
           />
         </div>
 
         <button onClick={handleLogin}>Login</button>
-        <p style={{margin: "10px"}}>{message}</p>
+        <p style={{ margin: "10px" }}>{message}</p>
       </form>
     </div>
   );
 }
 
 export default Login;
+
+// const [number, setNumber] = React.useState(10)
+
+// setNumber(abc)
+// // giá trị ban đầu của number là bằng 10
+// // khi setNumber dc gọi thì nó gọi hàm abc sẽ được trả về gía trị mới = number cũ + 11
+
+
+// function abc(previous) {
+//   return 11 + previous
+// }
+
+let user = {
+  username: "",
+  password: ""
+}
+
+user.username = "newValue"
+
+let newUser = {
+  username: "",
+  password: "",
+  username: "newValue"
+}
+
