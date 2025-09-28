@@ -14,9 +14,6 @@ function Login() {
     password: "",
   });
 
-  const [checkUsername, setCheckUsername] = React.useState(false);
-  const [checkPassword, setCheckPassword] = React.useState(false);
-
   const [message, setMessage] = React.useState("");
 
   const myAccount = {
@@ -24,32 +21,13 @@ function Login() {
     password: "toibiham123",
   };
 
-  // Check username lấy value từ input
-  const handleChangeUsernameInput = (e) => {
-    setUsernameInput(e.target.value);
-    if (e.target.value === myAccount.username) {
-      setCheckUsername(true);
-    } else {
-      setCheckUsername(false);
-    }
-  };
-
-  // Check password lấy value từ input
-  const handleChangePasswordInput = (e) => {
-    setPasswordInput(e.target.value);
-    if (e.target.value === myAccount.password) {
-      setCheckPassword(true);
-    } else {
-      setCheckPassword(false);
-    }
-  };
 
   const handleLogin = (e) => {
     e.preventDefault(); // web k bi reload
 
-    if (!checkUsername) {
+    if (loginPerson.username !== myAccount.username) {
       setMessage("Your account is not exist!");
-    } else if (!checkPassword) {
+    } else if (loginPerson.password !== myAccount.password) {
       setMessage("Wrong password!");
     } else {
       setMessage("Successfully!");
@@ -121,16 +99,15 @@ export default Login;
 //   return 11 + previous
 // }
 
-let user = {
-  username: "",
-  password: ""
-}
+// let user = {
+//   username: "",
+//   password: ""
+// }
 
-user.username = "newValue"
+// user.username = "newValue"
 
-let newUser = {
-  username: "",
-  password: "",
-  username: "newValue"
-}
-
+// let newUser = {
+//   username: "",
+//   password: "",
+//   username: "newValue"
+// }
