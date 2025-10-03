@@ -11,6 +11,7 @@ import Blog from "./pages/Blog/blog";
 // import Practice2 from "./pages/Practice2/Practice2";
 import Login from "./pages/Login/Login";
 import Product from "./pages/Product/product";
+import ToDoList from "./pages/ToDoList/test";
 
 function App() {
   const arrayHeaders = [
@@ -39,8 +40,14 @@ function App() {
     {
       Number: 7,
       pageName: "Product",
-      path: "/product", 
+      path: "/product",
       element: <Product />,
+    },
+    {
+      Number: 8,
+      pageName: "ToDoList",
+      path: "/todolist",
+      element: <ToDoList />,
     }
   ];
 
