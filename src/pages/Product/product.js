@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const products = [
   {
@@ -41,22 +41,74 @@ const products = [
     description: "Bình giữ nhiệt 500ml giữ nóng/lạnh lên đến 12 giờ.",
     image: "https://picsum.photos/300/200?random=5",
   },
+  {
+    id: 6,
+    name: "Sách Kỹ Năng Sống",
+    price: 120000,
+    category: "Sách",
+    description:
+      "Cuốn sách truyền cảm hứng giúp bạn phát triển bản thân và tư duy tích cực.",
+    image: "https://picsum.photos/300/200?random=6",
+  },
+  {
+    id: 7,
+    name: "Bàn Phím Cơ RGB",
+    price: 890000,
+    category: "Điện tử",
+    description:
+      "Bàn phím cơ đèn RGB chuyển màu mượt mà, cảm giác gõ cực kỳ đã tay.",
+    image: "https://picsum.photos/300/200?random=7",
+  },
+  {
+    id: 8,
+    name: "Nến Thơm Thư Giãn",
+    price: 180000,
+    category: "Trang trí",
+    description:
+      "Nến thơm mùi lavender giúp giảm căng thẳng và tạo không gian thư giãn.",
+    image: "https://picsum.photos/300/200?random=8",
+  },
+  {
+    id: 9,
+    name: "Bộ Cốc Thủy Tinh 6 Cái",
+    price: 220000,
+    category: "Gia dụng",
+    description:
+      "Cốc thủy tinh cao cấp, chịu nhiệt tốt, dùng được cho máy rửa chén.",
+    image: "https://picsum.photos/300/200?random=9",
+  },
+  {
+    id: 10,
+    name: "Sữa Rửa Mặt Thiên Nhiên",
+    price: 135000,
+    category: "Mỹ phẩm",
+    description:
+      "Sữa rửa mặt chiết xuất trà xanh, làm sạch nhẹ nhàng và ngăn ngừa mụn.",
+    image: "https://picsum.photos/300/200?random=10",
+  },
 ];
 
 function Products() {
-  const [expandID, setExpandID] = useState([]); // Array because saved lots of ID
+  const [expandID, setExpandID] = useState([]); // Array vì lưu nhiều ID
 
   const toggleDescription = (id) => {
     if (expandID.includes(id)) {
       setExpandID(expandID.filter((item) => item !== id));
     } else {
-      setExpandID([...expandID, id]); 
+      setExpandID([...expandID, id]);
     }
+  };
+
+  const [showMore, setShowMore] = useState(false);
+
+  // Tạo hàm đổi trạng thái
+  const toggleVisibleProducts = () => {
+    setShowMore(!showMore);
   };
 
   return (
     <div style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>
-      {products.map((products) => (
+      {(showMore ? products : products.slice(0, 5)).map((products) => (
         <div
           key={products.id}
           style={{
@@ -81,7 +133,11 @@ function Products() {
 
           <button
             onClick={() => toggleDescription(products.id)}
-            style={{ cursor: "pointer", background: "none", border: "none" }}
+            style={{
+              cursor: "pointer",
+              background: "none",
+              border: "none",
+            }}
           >
             {expandID.includes(products.id) ? "Hide" : "Read more"}
           </button>
@@ -93,7 +149,21 @@ function Products() {
           )}
         </div>
       ))}
-      ;
+      <button
+        onClick={toggleVisibleProducts}
+        style={{
+          cursor: "pointer",
+          width: "100px",
+          height: "20px",
+          padding: "10px",
+          textAlign: "center",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {showMore ? "Hide" : "More"}
+      </button>
     </div>
   );
 }
