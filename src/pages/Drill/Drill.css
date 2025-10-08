@@ -1,0 +1,22 @@
+.container {
+    width: 500px;
+    height: 300px;
+    border: 2px solid red;
+    margin: 100px auto;
+    display: flex;
+    align-items: flex-end;
+}
+
+.container div {
+    height: 100px;
+    width: 50%;
+    background-color: azure;
+}
+
+.container div:first-child {
+    background-color: aquamarine;
+}
+
+.container div:last-child {
+    background-color: rgb(220, 223, 82);
+}

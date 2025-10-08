@@ -8,6 +8,7 @@ import About from "./pages/About/about";
 import Contact from "./pages/Contact/contact";
 import Blog from "./pages/Blog/blog";
 import Practice from "./pages/Practice/practice";
+import Drill from "./pages/Drill/Drill";
 
 function App() {
   const arrayHeaders = [
@@ -21,6 +22,12 @@ function App() {
       path: "/practice",
       element: <Practice />,
     },
+    {
+      Number: 6, 
+      pageName: "Drill",
+      path: "/drill",
+      element: <Drill />
+    }
   ];
 
   console.log("Render App");
