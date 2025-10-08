@@ -1,10 +1,16 @@
 import React from "react";
 
-function FristChild() {
+function FristChild({ content, sendData }) {
+    const submitSendDate = () => {
+        sendData("Hello123")
+    }
   return (
     <div>
+      {content}
       <h3>FristChild</h3>
       <input />
+      <br />
+      <button onClick={submitSendDate}>Submit</button>
     </div>
   );
 }

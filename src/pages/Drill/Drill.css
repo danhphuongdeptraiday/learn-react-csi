@@ -1,22 +1,28 @@
 .container {
-    width: 500px;
-    height: 300px;
-    border: 2px solid red;
-    margin: 100px auto;
-    display: flex;
-    align-items: flex-end;
+  width: 500px;
+  height: 300px;
+  border: 2px solid red;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between    ;
 }
 
-.container div {
-    height: 100px;
-    width: 50%;
-    background-color: azure;
+.wrapper {
+  display: flex;
+  align-items: flex-end;
 }
 
-.container div:first-child {
-    background-color: aquamarine;
+.wrapper div {
+  height: 100px;
+  width: 50%;
+  background-color: azure;
 }
 
-.container div:last-child {
-    background-color: rgb(220, 223, 82);
+.wrapper div:first-child {
+  background-color: aquamarine;
+}
+
+.wrapper div:last-child {
+  background-color: rgb(220, 223, 82);
 }
