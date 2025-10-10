@@ -1,6 +1,6 @@
 import React, { Children, useState } from "react";
 import "./Drill.css";
-import FristChild from "./FirstChild/FristChild";
+import FirstChild from "./FirstChild/FirstChild";
 import SecondChild from "./SecondChild/SecondChild";
 
 function Drill() {
@@ -15,7 +15,7 @@ function Drill() {
       <h3>Output: {receive}</h3>
 
       <div className="wrapper">
-        <FristChild content={"hello"} sendData={sendData}/>
+        <FirstChild sendData={sendData}/>
         <SecondChild />
       </div>
     </div>
