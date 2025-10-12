@@ -1,20 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import DrillContext from "../DrillContext";
 
-function FirstChild({ updateData, inputValue }) {
-    // const submitSendDate = (e) => {
-    //     sendData(inputValue)
-    // }
+function FirstChild() {
 
-    // Lưu dữ liệu người dùng nhập từ input
-    // const [inputValue, setInputValue] = useState("")
-    // const updateInputValue = (e) => {
-    //   setInputValue(e.target.value)
-    // }
-
+  const data = useContext(DrillContext)
+  
   return (
     <div>
-      <h3>FirstChild</h3>
-      <input value={inputValue} onChange={(e) => updateData(e.target.value)}/>
+      <h3>FirstChild {data.receive}</h3>
+      <input value={data.receive} onChange={(e) => data.setReceive(e.target.value)}/>
       <br />
       {/* <button onClick={submitSendDate}>Submit</button> */}
     </div>

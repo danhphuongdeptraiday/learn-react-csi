@@ -1,24 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Drill.css";
 import FirstChild from "./FirstChild/FirstChild";
 import SecondChild from "./SecondChild/SecondChild";
+import DrillContext, { DrillProvider } from "./DrillContext";
 
 function Drill() {
-    // Callback
-    const [receive, setReceive] = useState("")
-    const updateData = (value) => {
-      setReceive(value)
-    }
 
   return (
-    <div className="container">
-      <h3>Output: {receive}</h3>
+    <DrillProvider>
+      <div className="container">
+        <h3>Output:</h3>
 
-      <div className="wrapper">
-        <FirstChild updateData={updateData} inputValue={receive}/>
-        <SecondChild />
+        <div className="wrapper">
+          <FirstChild />
+          <SecondChild />
+        </div>
       </div>
-    </div>
+    </DrillProvider>
   );
 }
 
