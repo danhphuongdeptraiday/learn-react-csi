@@ -1,49 +1,42 @@
-// import logo from './logo.svg';
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import snoopy from "./assets/snoopy.jpeg";
 import AppHeader from "./components/AppHeader/AppHeader";
 import Home from "./pages/Home/home";
 import About from "./pages/About/about";
 import Contact from "./pages/Contact/contact";
 import Blog from "./pages/Blog/blog";
-import Practice from "./pages/Practice/practice";
+// import Practice from "./pages/Practice/practice";
 import Drill from "./pages/Drill/Drill";
+import Create from "./pages/Create/create";
+import { ThemeContext } from "./context/ThemeContext";
+import { useContext } from "react";
 
 function App() {
   const arrayHeaders = [
-    { Number: 1, pageName: "Home", path: "/", element: <Home /> },
-    { Number: 2, pageName: "About", path: "/about", element: <About /> },
-    { Number: 3, pageName: "Contact", path: "/contact", element: <Contact /> },
-    { Number: 4, pageName: "Blog", path: "/blog", element: <Blog /> },
-    {
-      Number: 5,
-      pageName: "Practice",
-      path: "/practice",
-      element: <Practice />,
-    },
-    {
-      Number: 6, 
-      pageName: "Drill",
-      path: "/drill",
-      element: <Drill />
-    }
+    { number: 1, key: "home",    path: "/",         element: <Home /> },
+    { number: 2, key: "about",   path: "/about",    element: <About /> },
+    { number: 3, key: "contact", path: "/contact",  element: <Contact /> },
+    { number: 4, key: "blog",    path: "/blog",     element: <Blog /> },
+    { number: 5, key: "drill",   path: "/drill",    element: <Drill /> },
+    { number: 6, key: "create",   path: "/create",    element: <Create /> },
   ];
 
   console.log("Render App");
 
+  const { theme } = useContext(ThemeContext);
+
   return (
     <Router>
-      <div className="App">
+      <div className={`${theme}`}>
         <AppHeader arrayHeaders={arrayHeaders} />
 
         <div className="appBody">
           <Routes>
-            {arrayHeaders.map((header) => (
+            {arrayHeaders.map((route) => (
               <Route
-                key={header.Number}
-                path={header.path}
-                element={header.element}
+                key={route.number}
+                path={route.path}
+                element={route.element}
               />
             ))}
           </Routes>

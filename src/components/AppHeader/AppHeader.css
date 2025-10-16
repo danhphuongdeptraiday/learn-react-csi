@@ -1,20 +1,53 @@
 .App-header {
-    background-color: #282c34;
-    padding: 20px;
-    color: white;
-    display: flex;
-    justify-content: space-around;
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: space-around;
 }
 
 .App-header div {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .App-header div:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .App-header a {
-    text-decoration: none;
-    color: white; 
+  text-decoration: none;
+  color: white;
+}
+
+.action-buttons button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  border: 1px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+
+.app-header.light {
+  background-color: #ffffff;
+}
+.app-header.light nav a {
+  color: #333;
+}
+.app-header.light .action-buttons button {
+  color: #333;
+  border-color: #333;
+}
+
+/* Dark Mode */
+.app-header.dark {
+  background-color: #1a1a1a;
+}
+.app-header.dark nav a {
+  color: #eee;
+}
+.app-header.dark .action-buttons button {
+  color: #eee;
+  border-color: #eee;
 }
