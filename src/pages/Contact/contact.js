@@ -43,8 +43,6 @@ export default function Contact() {
 
   // Dependency = [] khi ta muốn logic chỉ được thực thi 1 lần đầu tiên khi component dc mount và nó ko thực thi khi bị component re-render
 
-  console.log("Helo ngoai useEffect: ", count);
-
   return (
     <div className="contact-container">
       <h1> This is our contact: </h1>
