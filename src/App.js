@@ -27,14 +27,14 @@ function App() {
 
   return (
     <Router>
-      <div className={`${theme}`}>
+      <div className={`App ${theme}`}>
         <AppHeader arrayHeaders={arrayHeaders} />
 
         <div className="appBody">
           <Routes>
             {arrayHeaders.map((route) => (
               <Route
-                key={route.number}
+                key={route.key}
                 path={route.path}
                 element={route.element}
               />

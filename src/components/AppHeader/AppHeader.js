@@ -9,7 +9,7 @@ function AppHeader({ arrayHeaders }) {
   const { language, toggleLanguage, texts } = useContext(LanguageContext);
 
   return (
-    <header className={`${theme}`}>
+    <header className={`App-header ${theme}`}>
       {arrayHeaders.map((header) => {
         return (
           <Link key={header.key} to={header.path}>

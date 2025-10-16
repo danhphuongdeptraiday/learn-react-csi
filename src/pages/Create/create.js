@@ -8,6 +8,7 @@ function CreatePost() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     alert("The post has been created!");
     console.log({ title, description });
   };
@@ -17,35 +18,35 @@ function CreatePost() {
       <form onSubmit={handleSubmit} className="editor">
         <h2> Create new post </h2>
         <div className="form-group">
-          <label htmlFor="title">Tiêu đề</label>
+          <label htmlFor="title">Title</label>
           <input
             id="title"
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Tiêu đề hấp dẫn..."
+            placeholder="Interesting title..."
             required
           ></input>
         </div>
         <div className="form-group">
-          <label htmlFor="description">Nội dung</label>
+          <label htmlFor="description">Content/Description</label>
           <textarea
             id="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="Viết nội dung của bạn ở đây..."
+            placeholder="Write the content or description here..."
             required
           />
         </div>
-        <button type="submit">Đăng bài</button>
+        <button type="submit">Post</button>
       </form>
 
       <div className="post-draft">
         <h2> Post Draft </h2>
         <article className="post-preview">
-          <h1> {title} || 'Title will be here!'</h1>
+          <h1> {title || 'Title will be here!'} </h1>
           <ReactMarkdown>
-            {description} || 'Content/Description will be here!'
+            {description || 'Content/Description will be here!'}
           </ReactMarkdown>
         </article>
       </div>

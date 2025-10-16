@@ -7,6 +7,7 @@ const translations = {
     contact: "Contact",
     blog: "Blog",
     drill: "Drill",
+    create: "Create",
   },
   vi: {
     home: "Trang chủ",
@@ -14,6 +15,7 @@ const translations = {
     contact: "Liên hệ",
     blog: "Bài viết",
     drill: "Thực hành",
+    create: "Tạo bài",
   }
 };
 
